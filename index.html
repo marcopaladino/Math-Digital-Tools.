@@ -38,15 +38,7 @@
       font-size: 14px;
       cursor: pointer;
       white-space: nowrap;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
       transition: background 0.2s, color 0.2s;
-    }
-
-    .tab-button:hover {
-      background: #44474a;
-      color: #e8eaed;
     }
     
     .tab-button.active {
@@ -190,28 +182,24 @@
 
   <!-- Top Tab Bar -->
   <div class="tab-bar notranslate">
-    <!-- Option 1: External Browser Tab -->
-    <a 
-      class="tab-button" 
-      href="https://eqao.vretta.com/#/en/login-student" 
-      target="_blank" 
-      rel="noopener noreferrer">
-      EQAO Vretta ↗
-    </a>
-
-    <!-- Embedded Panels -->
-    <button class="tab-button tab-panel-btn active" onclick="switchTab(0)">Scientific Calculator</button>
-    <button class="tab-button tab-panel-btn" onclick="switchTab(1)">Graphing Calculator</button>
-    <button class="tab-button tab-panel-btn" onclick="switchTab(2)">Polypad</button>
-    <button class="tab-button tab-panel-btn" onclick="switchTab(3)">GeoGebra</button>
-    <button class="tab-button tab-panel-btn" onclick="switchTab(4)">Translate 🟢</button>
+    <button class="tab-button active" onclick="switchTab(0)">EQAO Vretta</button>
+    <button class="tab-button" onclick="switchTab(1)">Scientific Calculator</button>
+    <button class="tab-button" onclick="switchTab(2)">Graphing Calculator</button>
+    <button class="tab-button" onclick="switchTab(3)">Polypad</button>
+    <button class="tab-button" onclick="switchTab(4)">GeoGebra</button>
+    <button class="tab-button" onclick="switchTab(5)">Translate 🟢</button>
   </div>
 
   <!-- Content Panels -->
   <div class="tab-content-container">
-
-    <!-- Tab 0: Cropped Desmos Scientific Calculator -->
+    
+    <!-- Tab 0: EQAO Vretta -->
     <div class="tab-panel active">
+      <iframe class="standard-iframe" src="https://eqao.vretta.com/#/en/login-student"></iframe>
+    </div>
+
+    <!-- Tab 1: Cropped Desmos Scientific Calculator -->
+    <div class="tab-panel">
       <div class="instruction-banner">
         If needed, the <strong>wrench 🔧</strong> icon on the calculator can be used to increase the font size.
       </div>
@@ -224,7 +212,7 @@
       </div>
     </div>
 
-    <!-- Tab 1: Desmos Graphing Calculator -->
+    <!-- Tab 2: Desmos Graphing Calculator -->
     <div class="tab-panel">
       <div class="instruction-banner">
         If needed, the <strong>wrench 🔧</strong> icon on the calculator can be used to increase the font size.
@@ -238,7 +226,7 @@
       </div>
     </div>
 
-    <!-- Tab 2: Amplify Polypad Direct Embed -->
+    <!-- Tab 3: Amplify Polypad Direct Embed -->
     <div class="tab-panel">
       <div class="instruction-banner">
         🔓 Select <strong>"Continue without signing in"</strong> and then <strong>type your name</strong>.
@@ -251,7 +239,7 @@
       </div>
     </div>
 
-    <!-- Tab 3: GeoGebra Direct Embed -->
+    <!-- Tab 4: GeoGebra Direct Embed -->
     <div class="tab-panel">
       <iframe 
         class="standard-iframe" 
@@ -261,7 +249,7 @@
       </iframe>
     </div>
 
-    <!-- Tab 4: Native Translate Tool -->
+    <!-- Tab 5: Native Translate Tool -->
     <div class="tab-panel" id="translate-panel">
       <div class="translate-container">
         <div class="translate-header">
@@ -285,7 +273,7 @@
 
   <script>
     function switchTab(index) {
-      const tabs = document.querySelectorAll('.tab-panel-btn');
+      const tabs = document.querySelectorAll('.tab-button');
       const panels = document.querySelectorAll('.tab-panel');
 
       tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
